@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Practical Test Xtramile/Practical Test Xtramile.csproj" />
+  <Project Path="tests/Practical_Test_Xtramile.Tests/Practical_Test_Xtramile.Tests.csproj" />
+</Solution>

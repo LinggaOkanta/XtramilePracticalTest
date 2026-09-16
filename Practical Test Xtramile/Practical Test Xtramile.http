@@ -1,0 +1,6 @@
+@Practical_Test_Xtramile_HostAddress = http://localhost:5199
+
+GET {{Practical_Test_Xtramile_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

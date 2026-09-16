@@ -1,0 +1,56 @@
+## ----------------------------------------------------------------------
+## .gitignore - Practical Test Xtramile (.NET 10 & Web Client)
+## ----------------------------------------------------------------------
+
+# Assessment & Problem Specification (Confidential / Do not track in Git)
+[Dd]ocument.md
+[Dd]ocument_*.md
+
+# Build Results & Binaries
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+build/
+
+# Visual Studio & IDE Caches
+.vs/
+.vscode/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.ide
+*.sln.docstates
+
+# Local Database Files (SQLite generated at runtime)
+*.db
+*.db-shm
+*.db-wal
+App_Data/*.db
+App_Data/*.db-shm
+App_Data/*.db-wal
+!App_Data/.gitkeep
+
+# Logs & Diagnostics
+*.log
+*.DiagnosticStore*
+
+# Test Results & Coverage
+TestResults/
+[Tt]est[Rr]esult*/
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Node / NPM (if used)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

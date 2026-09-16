@@ -73,4 +73,37 @@ public class TemperatureConverterTests
         // Assert
         dewPoint.Should().BeApproximately(expectedDewPoint, 0.1);
     }
+
+    [Theory]
+    [InlineData(68.0, Practical_Test_Xtramile.Domain.Enums.TemperatureUnit.Fahrenheit, Practical_Test_Xtramile.Domain.Enums.TemperatureUnit.Celsius, 20.0)]
+    [InlineData(20.0, Practical_Test_Xtramile.Domain.Enums.TemperatureUnit.Celsius, Practical_Test_Xtramile.Domain.Enums.TemperatureUnit.Fahrenheit, 68.0)]
+    [InlineData(25.5, Practical_Test_Xtramile.Domain.Enums.TemperatureUnit.Celsius, Practical_Test_Xtramile.Domain.Enums.TemperatureUnit.Celsius, 25.5)]
+    public void Convert_WithTemperatureUnitEnum_ShouldConvertAccurately(
+        double value,
+        Practical_Test_Xtramile.Domain.Enums.TemperatureUnit fromUnit,
+        Practical_Test_Xtramile.Domain.Enums.TemperatureUnit toUnit,
+        double expected)
+    {
+        // Act
+        double result = TemperatureConverter.Convert(value, fromUnit, toUnit);
+
+        // Assert
+        result.Should().Be(expected);
+    }
+
+    [Fact]
+    public void Temperature_FromUnit_WithTemperatureUnitEnum_ShouldCreateValidTemperatureObject()
+    {
+        // Act
+        var tempF = Temperature.FromUnit(68.0, Practical_Test_Xtramile.Domain.Enums.TemperatureUnit.Fahrenheit);
+        var tempC = Temperature.FromUnit(20.0, Practical_Test_Xtramile.Domain.Enums.TemperatureUnit.Celsius);
+
+        // Assert
+        tempF.Celsius.Should().Be(20.0);
+        tempF.Fahrenheit.Should().Be(68.0);
+
+        tempC.Celsius.Should().Be(20.0);
+        tempC.Fahrenheit.Should().Be(68.0);
+    }
 }
+

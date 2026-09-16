@@ -1,3 +1,4 @@
+using Practical_Test_Xtramile.Domain.Enums;
 using Practical_Test_Xtramile.Domain.Services;
 
 namespace Practical_Test_Xtramile.Domain.ValueObjects;
@@ -24,4 +25,12 @@ public record Temperature
             Fahrenheit = TemperatureConverter.CelsiusToFahrenheit(celsius)
         };
     }
+
+    public static Temperature FromUnit(double value, TemperatureUnit unit) => unit switch
+    {
+        TemperatureUnit.Fahrenheit => FromFahrenheit(value),
+        TemperatureUnit.Celsius => FromCelsius(value),
+        _ => throw new ArgumentOutOfRangeException(nameof(unit), unit, null)
+    };
 }
+
